@@ -1,0 +1,29 @@
+// import Joi from "joi";
+//
+// const employeeValidation = (data) => {
+//     const schema = Joi.object({
+//         name: Joi.string()
+//             .min(1)
+//             .max(50)
+//             .required(),
+//         age: Joi.number()
+//             .required()
+//             .integer()
+//             .min(18)
+//             .max(60),
+//         position: Joi.string()
+//             .min(3)
+//             .max(50)
+//             .required(),
+//         salary: Joi.number()
+//             .required()
+//             .integer()
+//             .min(10)
+//             .max(100000)
+//     })
+//         .unknown();
+//
+//     return schema.validate(data);
+// };
+//
+// export default employeeValidation;

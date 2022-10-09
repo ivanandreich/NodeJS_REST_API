@@ -1,0 +1,159 @@
+//// 3.1. GET ALL REQUEST - SORTING ALL EMPLOYEES (router.js)
+// employeeRouter.get(parser,
+//     async function (req, res) {
+//         try {
+//             const files = await EmployeeController.getSortFiles();
+//             res.status(200).json(files);
+//         } catch (e) {
+//             console.log(e);
+//         }
+//     }
+// );
+
+//// 3.1. SORTING ALL EMPLOYEES (controller.js)
+    static async getSortFiles(req, res) {
+        try {
+            const {sort} = req.query;
+            let files;
+            switch (sort) {
+                case 'name':
+                    files = await File.find({
+                        user: req.user.id,
+                        parent: req.query.parent
+                    })
+                        .sort({name: 1});
+                    break;
+
+                case 'age':
+                    files = await File.find({
+                        user: req.user.id,
+                        parent: req.query.parent
+                    })
+                        .sort({age: 1});
+                    break;
+
+                case 'position':
+                    files = await File.find({
+                        user: req.user.id,
+                        parent: req.query.parent
+                    })
+                        .sort({position: 1});
+                    break;
+
+                case 'salary':
+                    files = await File.find({
+                        user: req.user.id,
+                        parent: req.query.parent
+                    })
+                        .sort({salary: 1});
+                    break;
+
+                default:
+                    files = await File.find({
+                        user: req.user.id,
+                        parent: req.query.parent
+                    });
+                    break;
+            }
+            return res.status(200).json(files);
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+
+    //// 3. GET ALL EMPLOYEES
+
+        // static async getAllEmployees() {
+        //     const employees = await EmployeeController
+        //         .#dataBase(EmployeeController.#table_name)
+        //         .select("*")
+        //         .orderBy("id");
+        //     return employees;
+        // }
+
+    //// 3. GET ALL REQUEST - ALL EMPLOYEES
+
+    // employeeRouter.get(parser,
+    //     async function (request, response) {
+    //         try {
+    //             const employees = await EmployeeController.getAllEmployees();
+    //             response.status(200).json(employees);
+    //         } catch (e) {
+    //             console.log(e);
+    //         }
+    //     }
+    // );
+
+
+    /////////////////////////////////////////////////////////////////////
+    // VARIANT FOR POOL DATABASE
+    //
+    // const dataBase = require('../dataBase.js');
+    //
+    // class employeeController {
+    //     async createEmployee(req, res) {
+    //         try {
+    //             const {name, age, position, salary} = req.body;
+    //             const newEmployee = await dataBase.query(
+    //                 'INSERT INTO employee (name, age, position, salary) VALUES ($1, $2, $3, $4) RETURNING *',
+    //                 [name, age, position, salary]
+    //             );
+    //             res.status(200).json(newEmployee.rows[0]);
+    //         } catch (e) {
+    //             res.status(500).json(e);
+    //         }
+    //     }
+    //
+    //     async getAllEmployees(req, res) {
+    //         try {
+    //             const allEmployees = await dataBase.query(
+    //                 'SELECT * FROM employee'
+    //             );
+    //             res.status(200).json(allEmployees.rows);
+    //         } catch (e) {
+    //             res.status(500).json(e);
+    //         }
+    //     }
+    //
+    //     async getOneEmployee(req, res) {
+    //         try {
+    //             const id = req.params.id;
+    //             const oneEmployee = await dataBase.query(
+    //                 'SELECT * FROM employee WHERE id = $1',
+    //                 [id]
+    //             );
+    //             res.status(200).json(oneEmployee.rows[0]);
+    //         } catch (e) {
+    //             res.status(500).json(e);
+    //         }
+    //     }
+    //
+    //     async updateEmployee(req, res) {
+    //         try {
+    //             const {id, name, age, position, salary} = req.body;
+    //             const updateEmployee = await dataBase.query(
+    //                 'UPDATE employee SET name = $1, age = $2, position = $3, salary = $4 WHERE id = $5 RETURNING *',
+    //                 [name, age, position, salary, id]
+    //             );
+    //             res.status(200).json(updateEmployee.rows[0]);
+    //         } catch (e) {
+    //             res.status(500).json(e);
+    //         }
+    //     }
+    //
+    //     async deleteEmployee(req, res) {
+    //         try {
+    //             const id = req.params.id;
+    //             const deleteEmployee = await dataBase.query(
+    //                 'DELETE FROM employee WHERE id = $1',
+    //                 [id]
+    //             );
+    //             res.status(200).json(deleteEmployee.rows[0]);
+    //         } catch (e) {
+    //             res.status(500).json(e);
+    //         }
+    //     }
+    // }
+    //
+    // module.exports = new employeeController();

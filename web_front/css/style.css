@@ -1,0 +1,27 @@
+.arrowkeys{
+    display: inline-block; /* Строчно-блочный элемент */
+    background: white; /* Серый цвет фона */
+    color: #000; /* Белый цвет текста */
+    padding: 0.3rem 0.3rem; /* Поля вокруг текста */
+    text-decoration: none; /* Убираем подчёркивание */
+    border-radius: 3px; /* Скругляем уголки */
+    border: blue;
+}
+
+.editKeys{
+    display: inline-block; /* Строчно-блочный элемент */
+    background: green; /* Серый цвет фона */
+    color: white; /* Белый цвет текста */
+    padding: 0.2rem 0.3rem; /* Поля вокруг текста */
+    text-decoration: none; /* Убираем подчёркивание */
+    border-radius: 3px; /* Скругляем уголки */
+}
+
+.deleteKeys{
+    display: inline-block; /* Строчно-блочный элемент */
+    background: red; /* Серый цвет фона */
+    color: white; /* Белый цвет текста */
+    padding: 0.2rem 0.3rem; /* Поля вокруг текста */
+    text-decoration: none; /* Убираем подчёркивание */
+    border-radius: 3px; /* Скругляем уголки */
+}
